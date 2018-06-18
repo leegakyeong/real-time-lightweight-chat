@@ -1,0 +1,79 @@
+<!--
+  no server.
+  real-time lightweight chat.
+  ultralight, and intimate.
+  talk to a friend right next to you on one monitor.
+  once you reload the browser, all chats just fly away!
+--> 
+<!DOCTYPE html>
+<html>
+  <head>
+  	<title>real-time lightweight chat</title>
+  	<!-- <link href='//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSans-kr.css' rel='stylesheet' type='text/css'> -->
+  	<link rel="stylesheet" type="text/css" href="style.css">
+  	<script
+  src="https://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous"></script>
+    <script
+  src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"
+  integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU="
+  crossorigin="anonymous"></script>
+  </head>
+  <body>
+  	<div class="chat-visible" data-user=".user1">show</div>
+  	<div class="chat-visible" data-user=".user2">show</div>
+  	<div class="chat-window user1" style="display: none;">
+  	  <div class="chat-screen user1"></div>
+  	  <form class="chat-form">
+  	  	<input class="chat-input user1">
+  	  	<button class="chat-button" value=".user1">send</button>
+  	  </form>
+  	</div>
+  	<div class="chat-window user2" style="display: none;">
+  	  <div class="chat-screen user2"></div>
+  	  <form class="chat-form">
+  	  	<input class="chat-input user2">
+  	  	<button class="chat-button" value=".user2">send</button>
+  	  </form>
+  	</div>
+  	<script type="text/javascript">
+  	  $(document).ready(function(){
+  	  	$(".chat-window").draggable();
+  	  	// $(".chat-window").resizable(); 이건 왜 안 되지? 
+  	  	$(".chat-button").click(function(event){
+  	  	  event.preventDefault();
+  	  	  const me = $(this).val();
+  	  	  var you;
+  	  	  if(me === ".user1"){
+  	  	  	you = ".user2";
+  	  	  }else{
+  	  	  	you = ".user1";
+  	  	  };
+  	  	  console.log("me: "+me);
+  	  	  console.log("you: "+you);
+  	  	  $("<div>", {
+  	  	  	class: "chat-bubble-box"
+  	  	  }).append($("<div>", {
+  	  	  	class: "chat-bubble",
+  	  	  	text: $(".chat-input"+me).val()
+  	  	  })).appendTo(".chat-screen"+me)
+  	  	  $("<div>", {
+  	  	  	class: "chat-bubble-box"
+  	  	  }).append($("<div>", {
+  	  	  	class: "chat-bubble your-bubble",
+  	  	  	text: $(".chat-input"+me).val()
+  	  	  })).appendTo(".chat-screen"+you)
+  	  	  $(".chat-input").val("");
+  	  	});
+  	  	$(".chat-visible").click(function(event){
+  	  	  event.preventDefault();
+  	  	  const user = $(this).data("user");
+  	  	  console.log(user);
+  	  	  $(".chat-window"+user).toggle("fast");
+  	  	  $(this).text() === "show" ? $(this).text("hide") : $(this).text("show");
+  	  	});
+  	  });
+  	</script>
+  </body>
+</html>

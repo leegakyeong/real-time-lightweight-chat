@@ -1,0 +1,97 @@
+/*@import url(//fonts.googleapis.com/earlyaccess/notosanskr.css);
+* { font-family: 'Noto Sans KR'; }*/
+
+.chat-visible {
+	display: table-cell;
+	vertical-align: middle; /* 글자 자체가 좀 밑에 있네.. 이거 어떻게 가운데로 가져오지 */
+	width: 40px;
+	height: 40px;
+	border-radius: 20px;
+	background-color: darkslateblue;
+	color: white;
+	box-shadow: 2px 2px 2px whitesmoke;
+	text-align: center;
+	font-size: 14px;
+}
+
+.chat-window {
+	position: relative;
+	display: inline-block;
+	width: 300px;
+	height: 600px;
+	box-shadow: 2px 2px 2px whitesmoke;
+}
+
+.chat-screen {
+	position: absolute;
+	width: 100%;
+	height: 560px;
+	overflow-y: auto;
+	background-color: ghostwhite;
+}
+
+.chat-bubble-box { 
+	width: 100%; 
+	overflow: auto;
+}
+
+.chat-bubble {
+	float: right;
+	font-size: 12px;
+	background-color: white;
+	color: darkslateblue;
+	max-width: 200px;
+	margin: 7px 7px 0px 0px;
+	padding: 5px;
+	border-radius: 10px 10px 0px 10px;
+	box-shadow: 2px 2px 2px whitesmoke;
+	word-break: keep-all;
+	word-wrap: break-word;
+}
+
+.your-bubble {
+	float: left;
+	background-color: mediumslateblue;
+	color: white;
+	margin: 7px 0px 0px 7px;
+	border-radius: 10px 10px 10px 0px;
+}
+
+.chat-form {
+	position: absolute;
+	bottom: 0px;
+	width: 100%;
+	height: 40px;
+	background-color: mediumslateblue;
+	box-shadow: 0px -2px 2px whitesmoke;
+}
+
+.chat-input {
+	border: none;
+	width: 210px;
+	height: 18px;
+	border-radius: 9px;
+	padding-left: 9px;
+	margin-top: 10px;
+	margin-left: 10px;
+}
+
+.chat-input:focus, .chat-button:focus {
+	outline: none;
+}
+
+.chat-button {
+	margin-left: 2.5px;
+	border: none;
+	background-color: darkslateblue;
+	color: white;
+	font-size: 14px;
+	height: 22px;
+	padding: 1px 11px;
+	border-radius: 11px;
+}
+
+::webkit-scrollbar {
+	width: 10px;
+	background-color: darkslateblue;
+}
